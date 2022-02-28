@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Parser {
     public static Person parse(String lineId, List<String> personInfo) {
@@ -30,19 +31,18 @@ public class Parser {
     }
 
     private static void handleFamilyMembers(List<String> personInfo, Person person) {
-        var ref = new Object() {
-            Family family = null;
-        };
+        AtomicReference<Family> family = new AtomicReference<>();
+
         personInfo.forEach(line -> {
             if (line.startsWith("F")) {
-                ref.family = new Family();
-                ref.family.setId(line);
-                ref.family.parseFamilyMemberNameAndBirthYear(line);
-                person.getFamily().add(ref.family);
+                family.set(new Family());
+                family.get().setId(line);
+                family.get().parseFamilyMemberNameAndBirthYear(line);
+                person.getFamily().add(family.get());
             } else if (line.startsWith("A")) {
-                ref.family.setAddress(Address.parse(line));
+                family.get().setAddress(Address.parse(line));
             } else if (line.startsWith("T")) {
-                ref.family.setContact(Contact.parse(line));
+                family.get().setContact(Contact.parse(line));
             }
         });
     }
