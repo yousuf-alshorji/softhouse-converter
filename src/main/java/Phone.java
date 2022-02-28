@@ -1,40 +1,40 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Contact {
+public class Phone {
     private String mobile;
     private String landline;
 
-    public Contact(String mobile, String landline) {
+    public Phone(String mobile, String landline) {
         this.mobile = mobile;
         this.landline = landline;
     }
 
-    public Contact() {
+    public Phone() {
 
     }
 
-    public static Contact parse(String line) {
+    public static Phone parse(String line) {
         Pattern pattern = Pattern.compile("([^|]+)");
         Matcher matcher = pattern.matcher(line);
         int count = 0;
         while (matcher.find()) {
             count++;
         }
-        Contact contact;
+        Phone phone;
         String[] splitContact = line.split("\\|");
         switch (count) {
             case 2:
-                contact = new Contact(splitContact[1], null);
+                phone = new Phone(splitContact[1], null);
                 break;
             case 3:
-                contact = new Contact(splitContact[1], splitContact[1]);
+                phone = new Phone(splitContact[1], splitContact[1]);
                 break;
             default:
-                contact = new Contact();
+                phone = new Phone();
                 break;
         }
-        return contact;
+        return phone;
 
     }
 

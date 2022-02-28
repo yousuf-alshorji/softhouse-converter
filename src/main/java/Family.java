@@ -7,7 +7,7 @@ public class Family {
     private String id;
     private String name;
     private int birthYear;
-    private Contact contact;
+    private Phone phone;
     private Address address;
 
     public Family() {
@@ -46,12 +46,12 @@ public class Family {
         this.id = id;
     }
 
-    public Contact getContact() {
-        return contact;
+    public Phone getPhone() {
+        return phone;
     }
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public void setPhone(Phone phone) {
+        this.phone = phone;
     }
 
     public void parseFamilyMemberNameAndBirthYear(String line) {

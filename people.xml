@@ -4,7 +4,7 @@
         <address>
             <street>10 Downing Street</street>
         </address>
-        <contact/>
+        <phone/>
         <firstname>Boris</firstname>
     </person>
     <person>
@@ -21,10 +21,10 @@
             <city>Uppsala</city>
             <zip>75330</zip>
         </address>
-        <contact>
+        <phone>
             <landline>073-101801</landline>
             <mobile>073-101801</mobile>
-        </contact>
+        </phone>
         <family>
             <address>
                 <street>Frodegatan 13B</street>
@@ -36,9 +36,9 @@
         </family>
         <family>
             <birthYear>0</birthYear>
-            <contact>
+            <phone>
                 <mobile>073-101802</mobile>
-            </contact>
+            </phone>
             <name>Anna</name>
         </family>
         <firstname>Elof</firstname>

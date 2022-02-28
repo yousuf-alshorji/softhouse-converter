@@ -17,7 +17,7 @@ public class Parser {
                 person.setAddress(Address.parse(line));
                 linesToRemove.add(line);
             } else if (line.startsWith("T")) {
-                person.setContact(Contact.parse(line));
+                person.setPhone(Phone.parse(line));
                 linesToRemove.add(line);
             } else {
                 ongoing.set(false);
@@ -42,7 +42,7 @@ public class Parser {
             } else if (line.startsWith("A")) {
                 family.get().setAddress(Address.parse(line));
             } else if (line.startsWith("T")) {
-                family.get().setContact(Contact.parse(line));
+                family.get().setPhone(Phone.parse(line));
             }
         });
     }

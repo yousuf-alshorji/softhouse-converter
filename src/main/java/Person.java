@@ -9,7 +9,7 @@ public class Person {
     private String id;
     private String firstname;
     private String lastname;
-    private Contact contact;
+    private Phone phone;
     private Address address;
     private List<Family> family = new ArrayList<>();
 
@@ -33,12 +33,12 @@ public class Person {
         this.lastname = lastname;
     }
 
-    public Contact getContact() {
-        return contact;
+    public Phone getPhone() {
+        return phone;
     }
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public void setPhone(Phone phone) {
+        this.phone = phone;
     }
 
     public Address getAddress() {
@@ -89,6 +89,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" + "id='" + id + '\'' + ", firstname='" + firstname + '\'' + ", lastname='" + lastname + '\'' + ", phone='" + contact + '\'' + ", address=" + address + ", family=" + family + '}';
+        return "Person{" + "id='" + id + '\'' + ", firstname='" + firstname + '\'' + ", lastname='" + lastname + '\'' + ", phone='" + phone + '\'' + ", address=" + address + ", family=" + family + '}';
     }
 }
