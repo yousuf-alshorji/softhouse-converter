@@ -55,27 +55,21 @@ public class ParserTest {
     @Test(expected = FileNotFoundException.class)
     public void fileNotFoundThrowsException() throws FileNotFoundException {
         // when
-        converter.convert(new File("test"));
-    }
-
-    @Test
-    public void convertHappyPath() throws FileNotFoundException {
-        // given
-        File file = readFile("happyPath");
-
-        // when
-        converter.convert(file);
+        converter.convert(new File("test"), null);
     }
 
     @Test
     public void convertFileContainingInformationWithoutPersonLine() throws FileNotFoundException {
         // given
         File file = readFile("fileWithoutPerson");
+        Map<String, List<String>> informationByPerson = converter.getInformationByPerson(new Scanner(file));
 
         // when
-        converter.convert(file);
-    }
+        PeopleRegister peopleRegister = converter.parsePeopleRegister(informationByPerson);
 
+        // then
+        assertEquals(1, peopleRegister.getPeople().size());
+    }
 
     public File readFile(String fileName) {
         String pathString = "src/test/resources";

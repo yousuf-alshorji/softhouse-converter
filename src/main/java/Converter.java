@@ -7,14 +7,14 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Converter {
-    public void convert(File source) throws FileNotFoundException {
+    public void convert(File source, String outputPath) throws FileNotFoundException {
         Map<String, List<String>> linesByPerson;
         Scanner scanner = new Scanner(source);
         linesByPerson = getInformationByPerson(scanner);
         scanner.close();
         PeopleRegister peopleRegister = parsePeopleRegister(linesByPerson);
 
-        jaxbObjectToXML(peopleRegister);
+        jaxbObjectToXML(peopleRegister, outputPath);
 
     }
 
@@ -43,7 +43,7 @@ public class Converter {
         return linesByPerson;
     }
 
-    public void jaxbObjectToXML(PeopleRegister peopleRegister) {
+    public void jaxbObjectToXML(PeopleRegister peopleRegister, String outputPath) {
         try {
             //Create JAXB Context
             JAXBContext jaxbContext = JAXBContext.newInstance(PeopleRegister.class);
@@ -55,7 +55,7 @@ public class Converter {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
             //Store XML to File
-            File file = new File("people.xml");
+            File file = new File(outputPath + "/people.xml");
 
             //Writes XML file to file-system
             jaxbMarshaller.marshal(peopleRegister, file);
