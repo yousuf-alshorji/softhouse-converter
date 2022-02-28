@@ -17,7 +17,7 @@ public class ParserTest {
     public void parsePeopleRegister() throws FileNotFoundException {
         // given
         File file = readFile("happyPath");
-        Map<String, List<String>> informationByPerson = converter.getInformationByPerson(new Scanner(file));
+        Map<String, List<String>> informationByPerson = converter.getLinesByPerson(new Scanner(file));
 
         // when
         PeopleRegister peopleRegister = converter.parsePeopleRegister(informationByPerson);
@@ -30,7 +30,7 @@ public class ParserTest {
     public void parsePeopleRegisterWithDuplicateNamesParseAsDifferentPersons() throws FileNotFoundException {
         // given
         File file = readFile("duplicateNames");
-        Map<String, List<String>> informationByPerson = converter.getInformationByPerson(new Scanner(file));
+        Map<String, List<String>> informationByPerson = converter.getLinesByPerson(new Scanner(file));
 
         // when
         PeopleRegister peopleRegister = converter.parsePeopleRegister(informationByPerson);
@@ -43,7 +43,7 @@ public class ParserTest {
     public void parsePeopleRegisterWithWrongPersonNameShouldStillParseValidData() throws FileNotFoundException {
         // given
         File file = readFile("wrongPersonName");
-        Map<String, List<String>> informationByPerson = converter.getInformationByPerson(new Scanner(file));
+        Map<String, List<String>> informationByPerson = converter.getLinesByPerson(new Scanner(file));
 
         // when
         PeopleRegister peopleRegister = converter.parsePeopleRegister(informationByPerson);
@@ -62,7 +62,7 @@ public class ParserTest {
     public void convertFileContainingInformationWithoutPersonLine() throws FileNotFoundException {
         // given
         File file = readFile("fileWithoutPerson");
-        Map<String, List<String>> informationByPerson = converter.getInformationByPerson(new Scanner(file));
+        Map<String, List<String>> informationByPerson = converter.getLinesByPerson(new Scanner(file));
 
         // when
         PeopleRegister peopleRegister = converter.parsePeopleRegister(informationByPerson);

@@ -10,7 +10,7 @@ public class Converter {
     public void convert(File source, String outputPath) throws FileNotFoundException {
         Map<String, List<String>> linesByPerson;
         Scanner scanner = new Scanner(source);
-        linesByPerson = getInformationByPerson(scanner);
+        linesByPerson = getLinesByPerson(scanner);
         scanner.close();
         PeopleRegister peopleRegister = parsePeopleRegister(linesByPerson);
 
@@ -24,7 +24,7 @@ public class Converter {
         return peopleRegister;
     }
 
-    public Map<String, List<String>> getInformationByPerson(Scanner scanner) {
+    public Map<String, List<String>> getLinesByPerson(Scanner scanner) {
         Map<String, List<String>> linesByPerson = new HashMap<>();
         String previousPerson = null;
         while (scanner.hasNextLine()) {
