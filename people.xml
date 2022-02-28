@@ -2,6 +2,21 @@
 <people>
     <person>
         <address>
+            <street>10 Downing Street</street>
+        </address>
+        <contact/>
+        <firstname>Boris</firstname>
+    </person>
+    <person>
+        <address>
+            <street>10 Downing Street</street>
+            <city>London</city>
+        </address>
+        <firstname>Boris</firstname>
+        <lastname>Johnson</lastname>
+    </person>
+    <person>
+        <address>
             <street>S:t Johannesgatan 16</street>
             <city>Uppsala</city>
             <zip>75330</zip>
@@ -20,22 +35,13 @@
             <name>Hans</name>
         </family>
         <family>
-            <birthYear>1969</birthYear>
+            <birthYear>0</birthYear>
             <contact>
-                <landline>073-101802</landline>
                 <mobile>073-101802</mobile>
             </contact>
             <name>Anna</name>
         </family>
         <firstname>Elof</firstname>
         <lastname>Sundin</lastname>
-    </person>
-    <person>
-        <address>
-            <street>10 Downing Street</street>
-            <city>London</city>
-        </address>
-        <firstname>Boris</firstname>
-        <lastname>Johnson</lastname>
     </person>
 </people>

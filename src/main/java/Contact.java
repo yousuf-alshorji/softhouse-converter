@@ -24,9 +24,15 @@ public class Contact {
         Contact contact;
         String[] splitContact = line.split("\\|");
         switch (count) {
-            case 2 -> contact = new Contact(splitContact[1], null);
-            case 3 -> contact = new Contact(splitContact[1], splitContact[1]);
-            default -> contact = new Contact();
+            case 2:
+                contact = new Contact(splitContact[1], null);
+                break;
+            case 3:
+                contact = new Contact(splitContact[1], splitContact[1]);
+                break;
+            default:
+                contact = new Contact();
+                break;
         }
         return contact;
 

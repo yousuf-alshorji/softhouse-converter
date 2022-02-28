@@ -64,11 +64,13 @@ public class Family {
 
         String[] splitFamilyName = line.split("\\|");
         switch (count) {
-            case 2 -> setName(splitFamilyName[1]);
-            case 3 -> {
+            case 2:
+                setName(splitFamilyName[1]);
+                break;
+            case 3:
                 setName(splitFamilyName[1]);
                 setBirthYear(Integer.parseInt(splitFamilyName[2]));
-            }
+                break;
         }
     }
 

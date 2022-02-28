@@ -76,11 +76,13 @@ public class Person {
 
         String[] splitName = line.split("\\|");
         switch (count) {
-            case 2 -> setFirstname(splitName[1]);
-            case 3 -> {
+            case 2:
+                setFirstname(splitName[1]);
+                break;
+            case 3:
                 setFirstname(splitName[1]);
                 setLastname(splitName[2]);
-            }
+                break;
         }
 
     }

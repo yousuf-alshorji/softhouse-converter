@@ -31,10 +31,18 @@ public class Address {
         Address address;
         String[] splitAddress = line.split("\\|");
         switch (count) {
-            case 2 -> address = new Address(splitAddress[1], null, null);
-            case 3 -> address = new Address(splitAddress[1], splitAddress[2], null);
-            case 4 -> address = new Address(splitAddress[1], splitAddress[2], splitAddress[3]);
-            default -> address = new Address();
+            case 2:
+                address = new Address(splitAddress[1], null, null);
+                break;
+            case 3:
+                address = new Address(splitAddress[1], splitAddress[2], null);
+                break;
+            case 4:
+                address = new Address(splitAddress[1], splitAddress[2], splitAddress[3]);
+                break;
+            default:
+                address = new Address();
+                break;
         }
         return address;
     }
