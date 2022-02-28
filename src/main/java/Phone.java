@@ -1,7 +1,4 @@
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-public class Phone {
+public class Phone extends Line {
     private String mobile;
     private String landline;
 
@@ -15,15 +12,9 @@ public class Phone {
     }
 
     public static Phone parse(String line) {
-        Pattern pattern = Pattern.compile("([^|]+)");
-        Matcher matcher = pattern.matcher(line);
-        int count = 0;
-        while (matcher.find()) {
-            count++;
-        }
         Phone phone;
         String[] splitContact = line.split("\\|");
-        switch (count) {
+        switch (getNumberOfParts(line)) {
             case 2:
                 phone = new Phone(splitContact[1], null);
                 break;

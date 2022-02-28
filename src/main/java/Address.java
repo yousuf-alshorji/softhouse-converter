@@ -2,12 +2,9 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 @XmlRootElement(name = "address")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Address {
+public class Address extends Line {
     private String street;
     private String city;
     private String zip;
@@ -22,15 +19,9 @@ public class Address {
     }
 
     public static Address parse(String line) {
-        Pattern pattern = Pattern.compile("([^|]+)");
-        Matcher matcher = pattern.matcher(line);
-        int count = 0;
-        while (matcher.find()) {
-            count++;
-        }
         Address address;
         String[] splitAddress = line.split("\\|");
-        switch (count) {
+        switch (getNumberOfParts(line)) {
             case 2:
                 address = new Address(splitAddress[1], null, null);
                 break;

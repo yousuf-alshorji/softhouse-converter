@@ -2,10 +2,8 @@ import jakarta.xml.bind.annotation.XmlTransient;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class Person {
+public class Person extends Line {
     private String id;
     private String firstname;
     private String lastname;
@@ -67,15 +65,8 @@ public class Person {
     }
 
     public void parseName(String line) {
-        Pattern pattern = Pattern.compile("([^|]+)");
-        Matcher matcher = pattern.matcher(line);
-        int count = 0;
-        while (matcher.find()) {
-            count++;
-        }
-
         String[] splitName = line.split("\\|");
-        switch (count) {
+        switch (getNumberOfParts(line)) {
             case 2:
                 setFirstname(splitName[1]);
                 break;

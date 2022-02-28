@@ -1,9 +1,6 @@
 import jakarta.xml.bind.annotation.XmlTransient;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-public class Family {
+public class Family extends Line {
     private String id;
     private String name;
     private int birthYear;
@@ -55,15 +52,8 @@ public class Family {
     }
 
     public void parseFamilyMemberNameAndBirthYear(String line) {
-        Pattern pattern = Pattern.compile("([^|]+)");
-        Matcher matcher = pattern.matcher(line);
-        int count = 0;
-        while (matcher.find()) {
-            count++;
-        }
-
         String[] splitFamilyName = line.split("\\|");
-        switch (count) {
+        switch (getNumberOfParts(line)) {
             case 2:
                 setName(splitFamilyName[1]);
                 break;
