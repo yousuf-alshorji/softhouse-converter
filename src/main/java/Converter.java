@@ -55,7 +55,7 @@ public class Converter {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
             //Store XML to File
-            File file = new File(outputPath + "/people.xml");
+            File file = new File(outputPath);
 
             //Writes XML file to file-system
             jaxbMarshaller.marshal(peopleRegister, file);
